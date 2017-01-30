@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load nav %}
+
+{% block maincontent %}
+    {% block header %}
+    {% include "_partials/header.html" %}
+    {% endblock %}
+
+    {% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 main">
+                {% include "_partials/messages.html" %}
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    {% endblock container %}
+
+    {% block footer %}
+    <footer class="main-foot">
+    {% include "_partials/footer.html" %}
+    </footer>
+    {% endblock %}
+{% endblock maincontent %}

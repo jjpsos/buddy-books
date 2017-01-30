@@ -1,0 +1,113 @@
+////
+// GENERICS
+
+body {
+    background: #f0f0f0;
+}
+
+.body--home {
+    padding-top: 0px;
+}
+
+.main-head {
+    padding: 10em 0;
+
+    min-height: 20em;
+    height: 100vh;
+
+    background: $dark-grey-color;
+    background: linear-gradient(to bottom, $dark-grey-color, $grey-color);
+    color: white;
+    text-align: center;
+}
+
+.main-foot {
+    overflow: hidden;
+    border-top: 1px solid rgba(black, 0.10);
+    padding-top: 1.5em;
+    padding-bottom: 2em;
+    margin-top: 2em;
+    color: rgba(black, 0.30);
+}
+.main-foot--fixed-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    color: white;
+    color: rgba(white, 0.20);
+    border-color: transparent;
+
+    text-align: center;
+}
+
+.main-title {
+    font-size: 6rem;
+    margin-bottom: 20px;
+}
+.signup-form {
+    margin: 3em;
+}
+
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.nav .open > a {
+    &, &:hover, &:focus {
+        background: rgba(white, 0.06);
+        color: white;
+    }
+}
+
+.navbar-wrapper {
+    position: relative;
+    z-index: 2000;
+    background: $grey-color;
+    border-radius: 0px;
+
+    li {
+        border: none;
+    }
+    a {
+        color: white;
+        color: rgba(white, 0.5);
+        text-shadow: none !important;
+
+        &:hover {
+            color: white;
+        }
+    }
+    .link--bold {
+        background: darken($grey-color, 5%);
+    }
+    .dropdown-menu {
+        .btn-submit {
+            text-align: center;
+            display: inline-block;
+            width: 80%;
+            margin: 0.5em 10%;
+        }
+    }
+}
+.navbar-wrapper--fixed-top {
+    position: absolute;
+}
+.navbar-wrapper--translucide {
+    background: transparent;
+
+    .link--bold {
+        background: transparent;
+    }
+}
+
+// @media screen and (min-width: 44em) {
+//     .container {
+//         max-width: 1080px;
+//     }
+// }

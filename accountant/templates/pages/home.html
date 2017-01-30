@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load avatar_tags %}
+{% load static %}
+
+{% block bodyclassname %}body--home{% endblock %}
+
+{% block maincontent %}
+
+{% block header %}
+<a href="https://github.com/dulaccc/Accountant"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
+
+<nav class="collapse navbar-collapse navbar-fixed-top navbar-wrapper navbar-wrapper--translucide navbar-wrapper--fixed-top">
+    <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="link--bold" href="{% url 'account_signup' %}">Sign up</a></li>
+            <li><a href="{% url 'account_login' %}">Sign in</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+<header class="main-head">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="main-title">Accountant-x</h1>
+                <p class="lead">The open-sourced solution that make accounting accessible to small businnesses</p>
+
+                <form class="form-inline signup-form" method="post" action="{% url 'account_signup' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="sr-only" for="id_email">Email address</label>
+                        <input type="email" name="email" class="form-control" id="id_email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="id_password1">Password</label>
+                        <input type="password" name="password1" class="form-control" id="id_password1" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-outlined">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+{% block footer %}
+<footer class="main-foot main-foot--fixed-bottom">
+    {% include "_partials/footer.html" %}
+</footer>
+{% endblock %}
+{% endblock maincontent %}
+

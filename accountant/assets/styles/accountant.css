@@ -1,0 +1,94 @@
+body {
+  background: #f0f0f0; }
+
+.body--home {
+  padding-top: 0px; }
+
+.main-head {
+  padding: 10em 0;
+  min-height: 20em;
+  height: 100vh;
+  background: #29303e;
+  background: linear-gradient(to bottom, #29303e, #334955);
+  color: white;
+  text-align: center; }
+
+.main-foot {
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1.5em;
+  padding-bottom: 2em;
+  margin-top: 2em;
+  color: rgba(0, 0, 0, 0.3); }
+
+.main-foot--fixed-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  color: rgba(255, 255, 255, 0.2);
+  border-color: transparent;
+  text-align: center; }
+
+.main-title {
+  font-size: 6rem;
+  margin-bottom: 20px; }
+
+.signup-form {
+  margin: 3em; }
+
+.navbar-brand {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: auto; }
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background: rgba(255, 255, 255, 0.06);
+  color: white; }
+
+.navbar-wrapper {
+  position: relative;
+  z-index: 2000;
+  background: #334955;
+  border-radius: 0px; }
+  .navbar-wrapper li {
+    border: none; }
+  .navbar-wrapper a {
+    color: white;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: none !important; }
+    .navbar-wrapper a:hover {
+      color: white; }
+  .navbar-wrapper .link--bold {
+    background: #293b45; }
+  .navbar-wrapper .dropdown-menu .btn-submit {
+    text-align: center;
+    display: inline-block;
+    width: 80%;
+    margin: 0.5em 10%; }
+
+.navbar-wrapper--fixed-top {
+  position: absolute; }
+
+.navbar-wrapper--translucide {
+  background: transparent; }
+  .navbar-wrapper--translucide .link--bold {
+    background: transparent; }
+
+.btn-outlined {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: none; }
+  .btn-outlined:hover {
+    border-color: white;
+    color: white; }
+
+.form-control {
+  background-color: white;
+  box-shadow: none; }
+  .form-control:focus {
+    box-shadow: none; }
