@@ -107,9 +107,8 @@ WSGI_APPLICATION = 'wsgi.application'
 
 
 # Emailing
-
-DEFAULT_FROM_EMAIL = 'noreply@accountant.fr'
-
+#DEFAULT_FROM_EMAIL = 'noreply@accountant.fr'
+DEFAULT_FROM_EMAIL = 'jjpsos@295.ca'
 
 # Templates
 # https://docs.djangoproject.com/en/1.7/ref/settings/#template-context-processors
