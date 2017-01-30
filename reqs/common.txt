@@ -1,0 +1,23 @@
+Django>=1.8.0,<1.9.0
+
+# Database
+dj-database-url>=0.3,<0.4
+psycopg2>=2.5,<2.6
+
+# A static file production ready server
+dj-static==0.0.6
+
+# User accounts
+django-allauth>=0.19,<0.20
+django-avatar>=2.0,<2.1
+django-stronghold>=0.2,<0.3
+
+# Bower
+django-bower>=5.0,<5.1
+
+# Forms
+django-crispy-forms>=1.4,<1.5
+
+# Accounting main dependecy
+#django-accounting==0.2.8
+-e git+git://github.com/dulaccc/django-accounting@master#egg=django_accounting
