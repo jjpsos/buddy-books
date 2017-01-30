@@ -1,0 +1,95 @@
+{% load currency_filters bootstrap3 form_filters check_filters check_tags %}
+
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-4">
+        <div class="figure">
+            <h4>{{ object.total_incl_tax|currency|default:"-" }}</h4>
+            <span class="text-muted">Total (incl. tax)</span>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+        <div class="figure">
+            <h4>{{ object.total_excl_tax|currency|default:"-" }}</h4>
+            <span class="text-muted">Total (excl. tax)</span>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+        <div class="figure">
+            <h4>{{ object.total_tax|currency }}</h4>
+            <span class="text-muted">Tax</span>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+        <div class="figure">
+            <h4>{{ object.date_issued|default:"-" }}</h4>
+            <span class="text-muted">Date issued</span>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+        <div class="figure">
+            <h4>{{ object.total_due_incl_tax|currency|default:"-" }}</h4>
+            <span class="text-muted">Total still due (incl. tax)</span>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+        <div class="figure">
+            <h4>{{ object.date_dued|default:"-" }}</h4>
+            <span class="text-muted">Date dued</span>
+        </div>
+    </div>
+</div>
+
+{% if checklist %}
+<h3 class="page-header">Checklist</h3>
+<div class="row">
+    <div class="col-xs-6 col-sm-4">
+        <div class="list-group check-list">
+        {% for check in checklist %}
+            <div class="list-group-item list-group-item-{{ check|level_to_css_classname }}">
+                {% render_check check %}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<h3 class="page-header">Content</h3>
+{% include "books/_generics/sale_content.html" with object=object %}
+
+<hr>
+
+{% if payment_form %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Payments</h4>
+    </div>
+
+    {% include "books/_partials/payment_list.html" with payments=payments %}
+
+    <div class="panel-footer">
+        <form action="." method="post" class="form">
+            {% csrf_token %}
+
+            {{ payment_form.non_field_errors }}
+            <div class="row">
+                <div class="col-md-2">
+                    {% bootstrap_field payment_form.date_paid show_label=False %}
+                </div>
+                <div class="col-md-2">
+                    {% bootstrap_field payment_form.reference show_label=False %}
+                </div>
+                <div class="col-md-4">
+                    {% bootstrap_field payment_form.detail show_label=False %}
+                </div>
+                <div class="col-md-2">
+                    {% bootstrap_field payment_form.amount show_label=False %}
+                </div>
+                <div class="col-md-2 text-right">
+                    <button type="submit" class="btn btn-success">Add payment</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}

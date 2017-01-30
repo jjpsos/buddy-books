@@ -1,0 +1,41 @@
+{% extends "accounting/layout.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 main">
+            <h1 class="page-header text-center">Getting Started</h1>
+
+            <div class="row">
+                <ol class="list-group check-list">
+                    {% for step in steps %}
+                    {% if not step.is_completed %}
+                    <li class="list-group-item clearfix">
+                        <a href="{{ step.get_action_url }}" class="btn btn-success pull-right">Take care of that</a>
+                        <h4>{{ step.opts.name }}</h4>
+                        <p>{{ step.opts.description }}</p>
+                    </li>
+                    {% else %}
+                    <li class="list-group-item clearfix disabled">
+                        <h4>
+                            <span class="check-item pull-right">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </span>
+                            {{ step.opts.name }}
+                        </h4>
+                        <p>{{ step.opts.description }}</p>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ol>
+
+                {% if not all_steps_completed %}
+                <a href="#" disabled class="btn btn-default btn-lg btn-block">Please complete the above steps for your own sake</a>
+                {% else %}
+                <a href="{% url 'books:dashboard' %}" class="btn btn-success btn-lg btn-block">All Good! Go make some money</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

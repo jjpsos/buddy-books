@@ -1,0 +1,53 @@
+{% extends "accounting/layout.html" %}
+{% load currency_filters %}
+
+{% block content %}
+    <h1 class="page-header">
+        {{ organization.display_name }} <small>/ organization detail</small>
+        <div class="btn-group pull-right">
+            <a href="{% url 'books:organization-edit' organization.pk %}" class="btn btn-default" role="button">Edit</a>
+        </div>
+    </h1>
+
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3">
+            <div class="figure">
+                <h4>{{ organization.turnover_excl_tax|currency|default:"-" }}</h4>
+                <span class="text-muted">Turnover</span>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="figure">
+                <h4>{{ organization.profits|currency|default:"-" }}</h4>
+                <span class="text-muted">Profits</span>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="figure">
+                <h4>{{ organization.tax_provisionning|currency|default:0 }}</h4>
+                <span class="text-muted">Tax Provisionning</span>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="figure">
+                <h4>{{ organization.overdue_total|currency|default:0 }}</h4>
+                <span class="text-muted">Due payments</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            {% include "books/_partials/invoice_list.html" with invoices=invoices hide_edit=True %}
+            <a href="{% url 'books:invoice-create' %}" class="btn btn-primary btn-lg" role="button">
+                Add an invoice
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            {% include "books/_partials/bill_list.html" with bills=bills hide_edit=True %}
+            <a href="{% url 'books:bill-create' %}" class="btn btn-primary btn-lg" role="button">
+                Add an bill
+            </a>
+        </div>
+    </div>
+{% endblock content %}

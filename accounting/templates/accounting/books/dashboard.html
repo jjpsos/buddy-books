@@ -1,0 +1,69 @@
+{% extends "accounting/layout.html" %}
+{% load currency_filters %}
+
+{% block content %}
+    <h1 class="page-header">
+        {{ organization.display_name }} <small>/ organization detail</small>
+        <div class="btn-group pull-right">
+            <a href="{% url 'books:organization-edit' organization.pk %}" class="btn btn-default" role="button">Edit</a>
+        </div>
+    </h1>
+
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3">
+            <div class="figure">
+                <h4>{{ organization.turnover_excl_tax|currency|default:"-" }}</h4>
+                <span class="text-muted">Turnover</span>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="figure">
+                <h4>{{ organization.profits|currency|default:"-" }}</h4>
+                <span class="text-muted">Profits</span>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="figure">
+                <h4>{{ organization.tax_provisionning|currency|default:0 }}</h4>
+                <span class="text-muted">Tax Provisionning</span>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="figure">
+                <h4>{{ organization.overdue_total|currency|default:0 }}</h4>
+                <span class="text-muted">Due payments</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading overflow-box">
+                    <h4 class="pull-left">
+                        Invoices <small>/ what you earn</small>
+                    </h4>
+                    <div class="btn-group pull-right">
+                        <a href="{% url 'books:invoice-create' %}" class="btn btn-primary btn-md" role="button">
+                            Add an invoice
+                        </a>
+                    </div>
+                </div>
+                {% include "books/_generics/sale_list.html" with sales=invoices hide_edit=True %}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading overflow-box">
+                    <h4 class="pull-left">Bills <small> / what you owe</small></h4>
+                    <div class="btn-group pull-right">
+                        <a href="{% url 'books:bill-create' %}" class="btn btn-primary btn-md" role="button">
+                            Add an bill
+                        </a>
+                    </div>
+                </div>
+                {% include "books/_generics/sale_list.html" with sales=bills hide_edit=True %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
