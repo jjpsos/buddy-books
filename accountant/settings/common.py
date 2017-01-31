@@ -244,7 +244,6 @@ STRONGHOLD_PUBLIC_NAMED_URLS = (
 
 
 # Forms
-
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
