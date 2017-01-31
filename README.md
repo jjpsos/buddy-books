@@ -12,4 +12,10 @@ pip install -r requirements.txt
 createdb accountant   
 python manage.py makemigrations/migrate    
 python manage.py createsuperuser  
-python manage.py runserver  
+python manage.py runserver	
+
+Keeping code organized with Git:
+
+git add <file>	
+git commit  -m "description"
+git push  
