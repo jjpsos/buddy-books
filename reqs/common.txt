@@ -21,3 +21,25 @@ django-crispy-forms>=1.4,<1.5
 # Accounting main dependecy
 #django-accounting==0.2.8
 #-e git+git://github.com/dulaccc/django-accounting@master#egg=django_accounting
+
+# Used to render the forms
+django-bootstrap3==4.11.0
+
+# Used to improve the forms
+Django_Select2_Py3>=4.2.1
+
+# Used for date/time form fields
+django-datetime-widget>=0.9,<1.0
+
+# Define beautiful tags
+django-classy-tags==0.5.1
+
+# Internationalization
+Babel>=1.0,<1.4
+
+# Date utilities
+python-dateutil>=2.2,<2.3
+
+# Select2
+django-select2>=4.3,<4.4
+
