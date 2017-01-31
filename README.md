@@ -17,5 +17,5 @@ python manage.py runserver
 Keeping code organized with Git:
 
 git add <file>	
-git commit  -m "description"
+git commit  -m "description"    
 git push  
