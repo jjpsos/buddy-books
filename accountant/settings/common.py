@@ -38,7 +38,7 @@ LOCAL_SERVER = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['wdb.ddns.net']
 
 SITE_ID = 1
 SITE_MAIN_DOMAIN = 'example.com'
@@ -148,7 +148,7 @@ TEMPLATE_DIRS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
+        'NAME': '', 
         'USER': '',
         'PASSWORD': '',
         'HOST': ''
@@ -244,7 +244,6 @@ STRONGHOLD_PUBLIC_NAMED_URLS = (
 
 
 # Forms
-
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
