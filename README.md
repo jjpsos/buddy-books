@@ -10,6 +10,6 @@ git clone https://github.com/jjpsos/buddy-books.git
 cd buddy-books   
 pip install -r requirements.txt   
 createdb accountant   
-python manage.py makemigrations/migrate db  
+python manage.py makemigrations/migrate    
 python manage.py createsuperuser  
 python manage.py runserver  
